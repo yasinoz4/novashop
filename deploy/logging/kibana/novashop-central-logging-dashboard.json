@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "title": "NovaShop — Merkezi Log ve Sistem Analiz Panosu",
+    "description": "Docker, Kubernetes, Ubuntu ve Mikroservis Loglarının Merkezi İzleme Panosu",
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+    },
+    "optionsJSON": "{\"useMargins\": true, \"syncColors\": false, \"syncCursor\": true, \"syncTooltips\": false, \"hidePanelTitles\": false}",
+    "panelsJSON": "[{\"version\": \"8.9.0\", \"type\": \"lens\", \"gridData\": {\"x\": 0, \"y\": 0, \"w\": 12, \"h\": 6, \"i\": \"panel_total_logs\"}, \"panelIndex\": \"panel_total_logs\", \"embeddableConfig\": {\"attributes\": {\"title\": \"Toplam Sistem Log Say\\u0131s\\u0131\", \"visualizationType\": \"lnsMetric\", \"type\": \"lens\", \"references\": [{\"type\": \"index-pattern\", \"id\": \"novashop-all\", \"name\": \"indexpattern-datasource-layer-layer_total_logs\"}], \"state\": {\"visualization\": {\"layerId\": \"layer_total_logs\", \"layerType\": \"data\", \"metricAccessor\": \"col_count\"}, \"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filters\": [], \"datasourceStates\": {\"formBased\": {\"layers\": {\"layer_total_logs\": {\"columnOrder\": [\"col_count\"], \"columns\": {\"col_count\": {\"dataType\": \"number\", \"isBucketed\": false, \"label\": \"Toplam Log\", \"operationType\": \"count\", \"scale\": \"ratio\", \"sourceField\": \"___records___\", \"params\": {}}}, \"incompleteColumns\": {}}}}}, \"internalReferences\": [], \"adHocDataViews\": {}}}, \"hidePanelTitles\": false, \"type\": \"lens\"}, \"title\": \"Toplam Log Say\\u0131s\\u0131\"}, {\"version\": \"8.9.0\", \"type\": \"lens\", \"gridData\": {\"x\": 12, \"y\": 0, \"w\": 12, \"h\": 6, \"i\": \"panel_error_logs\"}, \"panelIndex\": \"panel_error_logs\", \"embeddableConfig\": {\"attributes\": {\"title\": \"Kritik Hata Loglar\\u0131 (ERROR)\", \"visualizationType\": \"lnsMetric\", \"type\": \"lens\", \"references\": [{\"type\": \"index-pattern\", \"id\": \"novashop-all\", \"name\": \"indexpattern-datasource-layer-layer_error_logs\"}], \"state\": {\"visualization\": {\"layerId\": \"layer_error_logs\", \"layerType\": \"data\", \"metricAccessor\": \"col_error_count\"}, \"query\": {\"language\": \"kuery\", \"query\": \"level: \\\"ERROR\\\" or http_status >= 500\"}, \"filters\": [], \"datasourceStates\": {\"formBased\": {\"layers\": {\"layer_error_logs\": {\"columnOrder\": [\"col_error_count\"], \"columns\": {\"col_error_count\": {\"dataType\": \"number\", \"isBucketed\": false, \"label\": \"Hatalar (ERROR)\", \"operationType\": \"count\", \"scale\": \"ratio\", \"sourceField\": \"___records___\", \"params\": {}}}, \"incompleteColumns\": {}}}}}, \"internalReferences\": [], \"adHocDataViews\": {}}}, \"hidePanelTitles\": false, \"type\": \"lens\"}, \"title\": \"Kritik Hatalar (ERROR)\"}, {\"version\": \"8.11.0\", \"type\": \"search\", \"gridData\": {\"x\": 0, \"y\": 6, \"w\": 24, \"h\": 16, \"i\": \"panel_live_logs\"}, \"panelIndex\": \"panel_live_logs\", \"embeddableConfig\": {\"enhancements\": {}}, \"panelRefName\": \"panel_live_logs_ref\", \"title\": \"NovaShop \\u2014 Canl\\u0131 Sistem Log Ak\\u0131\\u015f\\u0131 (Pod, Docker, Jenkins, Host)\"}]",
+    "timeRestore": true,
+    "timeFrom": "now-7d",
+    "timeTo": "now",
+    "version": 1
+  },
+  "references": [
+    {
+      "id": "novashop-all",
+      "name": "panel_total_logs:indexpattern-datasource-layer-layer_total_logs",
+      "type": "index-pattern"
+    },
+    {
+      "id": "novashop-all",
+      "name": "panel_error_logs:indexpattern-datasource-layer-layer_error_logs",
+      "type": "index-pattern"
+    },
+    {
+      "id": "novashop-live-stream",
+      "name": "panel_live_logs_ref",
+      "type": "search"
+    }
+  ]
+}
